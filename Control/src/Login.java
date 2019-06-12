@@ -1,4 +1,7 @@
+import javax.swing.JFrame;
 
-public class Login {
+public class Login extends JFrame{
+	
+	
 
 }
