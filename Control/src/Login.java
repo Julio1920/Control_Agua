@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -49,7 +50,7 @@ public class Login extends JFrame{
 		
 		JLabel usuario = new JLabel("Usuario"); //label de usuario
 		usuario.setFont(new Font("Arimo",Font.PLAIN,22));
-		usuario.setBounds(20,300,200,100);
+		usuario.setBounds(20,340,200,22);
 		usuario.setForeground(Color.WHITE);
 		panel1.add(usuario);
 		
@@ -73,7 +74,7 @@ public class Login extends JFrame{
 		panel1.add(password);
 		
 		//agregar botón
-		entrar.setBounds(70,500,270,40);
+		entrar.setBounds(70,480,270,50);
 		entrar.setBackground(Color.LIGHT_GRAY);
 		panel1.add(entrar);
 		
