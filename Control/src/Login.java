@@ -1,8 +1,10 @@
 import javax.swing.JFrame;
 
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.*;
 import java.util.Arrays;
 
 import javax.swing.*;
@@ -31,6 +33,7 @@ public class Login extends JFrame{
 		panel1.setLayout(null);  // desactivando el diseño por defecto
 		colocarEtiquetas();
 		colocarCajas();
+		eventos();
 	}
 	
 	public void colocarEtiquetas() {
@@ -78,19 +81,39 @@ public class Login extends JFrame{
 		entrar.setBackground(Color.LIGHT_GRAY);
 		panel1.add(entrar);
 		
+		entrar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+                entrar.setBackground(Color.WHITE);
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                entrar.setBackground(Color.LIGHT_GRAY);
+            }
+        });  
+		
 	}
 	
 	public void eventos() {
 		
-		
-		String us = usuario.getText();
-		char[] pass = {'1','9','2','0'}; //mi contraseña
-		char[] contra = password.getPassword();  //contenido del JPasswordField
-		if(us.equals("admin") && Arrays.equals(contra,pass)) {
-			System.out.println("Bienvenido");
-		}else {
-			System.out.println("Error en usuario o contraseña");
-		}
+		entrar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Menu menu = new Menu();
+				String us = usuario.getText();
+				char[] pass = {'1','9','2','0'}; //mi contraseña
+				char[] contra = password.getPassword();  //contenido del JPasswordField
+				if(us.equals("admin") && Arrays.equals(contra,pass)) {
+					System.out.println("Bienvenido");
+					menu.setVisible(true);
+					setVisible(false);
+				}else {
+					System.out.println("Error en usuario o contraseña");
+				}
+			}
+			
+		});
 		
 	}
 
